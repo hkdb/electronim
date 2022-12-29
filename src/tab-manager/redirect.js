@@ -37,7 +37,8 @@ const isOAuth = matchUrls([
   /^https:\/\/idbroker\.webex\.com\/idb\/oauth2\/.*/, // NOSONAR
   /^https:\/\/accounts\.zoho\.(eu|com)\/signin.*/, // NOSONAR
   /^https:\/\/.+\.zoom\.us\/profile.*/, // NOSONAR
-  /^https:\/\/.+\.zoom\.us\/signin.*/ // NOSONAR
+  /^https:\/\/.+\.zoom\.us\/signin.*/, // NOSONAR
+  /^https:\/\/.*\/signup\/gitlab\/complete.*/ // NOSONAR
 ]);
 
 const isSameOrigin = (browserViewUrl, url) => url.origin === browserViewUrl.origin;

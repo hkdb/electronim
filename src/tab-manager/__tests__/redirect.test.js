@@ -223,6 +223,24 @@ describe('Tab Manager Redirect module test suite', () => {
       });
     });
   });
+  describe('Gitlab OAuth', () => {
+    test('From OAuth to Mattermost, should return false', () => {
+      // Given
+      mockBrowserViewUrl = 'https://mattermost.gitlab.rlp.net/oauth/gitlab/login';
+      // When
+      const result = redirect.shouldOpenInExternalBrowser(mockBrowserView, new URL('https://mattermost.gitlab.rlp.net/login'));
+      // Then
+      expect(result).toBe(false);
+    });
+    test('From Mattermost to OAuth, should return false', () => {
+      // Given
+      mockBrowserViewUrl = 'https://mattermost.gitlab.rlp.net/login';
+      // When
+      const result = redirect.shouldOpenInExternalBrowser(mockBrowserView, new URL('https://mattermost.gitlab.rlp.net/oauth/gitlab/login'));
+      // Then
+      expect(result).toBe(false);
+    });
+  });
   describe('windowOpenHandler', () => {
     test('same origin, opens window in Electron', () => {
       // When
